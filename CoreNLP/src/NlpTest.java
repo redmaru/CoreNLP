@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 
+import org.apache.commons.io.*;
 import edu.stanford.nlp.dcoref.CorefChain;
 import edu.stanford.nlp.dcoref.CorefCoreAnnotations;
 import edu.stanford.nlp.io.*;
@@ -23,12 +24,16 @@ public class NlpTest {
 	    if (args.length > 2) {
 	      xmlOut = new PrintWriter(args[2]);
 	    }
+	    String ext = FilenameUtils.getExtension("Stanford University is located in California. It is a great university, founded in 1891.");
+	    System.out.println("Extension is " + ext);
+	    System.out.println(ext.isEmpty());
+	    /**
 	    StanfordCoreNLP pipeline = new StanfordCoreNLP();
 
 	    // Initialize an Annotation with some text to be annotated. The text is the argument to the constructor.
 	    Annotation annotation;
 	    if (args.length > 0) {
-	      annotation = new Annotation(IOUtils.slurpFileNoExceptions(args[0]));
+	      annotation = new Annotation(IOUtils.slurpFileNoExceptions("test.txt"));
 	    } else {
 	      annotation = new Annotation("Stanford University is located in California. It is a great university, founded in 1891.");
 	    }
@@ -40,6 +45,6 @@ public class NlpTest {
 	    pipeline.prettyPrint(annotation, out);
 	    if (xmlOut != null) {
 	      pipeline.xmlPrint(annotation, xmlOut);
-	    }
+	    }*/
 	}
 }
